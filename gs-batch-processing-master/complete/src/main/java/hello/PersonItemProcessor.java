@@ -1,5 +1,6 @@
 package hello;
 
+import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,8 +12,8 @@ public class PersonItemProcessor implements ItemProcessor<Person, Person> {
 
     @Override
     public Person process(final Person person) throws Exception {
-        final String firstName = person.getFirstName().toUpperCase();
-        final String lastName = person.getLastName().toUpperCase();
+        final String firstName = person.getFirstName().toUpperCase()+"_"+new Date().getTime();
+        final String lastName = person.getLastName().toUpperCase()+"_"+new Date().getTime();
 
         final Person transformedPerson = new Person(firstName, lastName);
 
